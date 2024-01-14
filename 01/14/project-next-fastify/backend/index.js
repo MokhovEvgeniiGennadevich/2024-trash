@@ -17,6 +17,7 @@ const server = (0, fastify_1.default)();
 server.get("/ping", (request, reply) => __awaiter(void 0, void 0, void 0, function* () {
     return "pong 25\n";
 }));
+// Запросы в PostgreSQL с помощью Fastify
 server.get("/characters", (request, reply) => __awaiter(void 0, void 0, void 0, function* () {
     const characters = [
         {
@@ -38,6 +39,7 @@ server.get("/characters", (request, reply) => __awaiter(void 0, void 0, void 0, 
             image: "ganon.PNG",
         },
     ];
+    // Рандомизируем возвращаемый результат ошибка или данные
     return characters;
 }));
 server.listen({ port: 8080 }, (err, address) => {

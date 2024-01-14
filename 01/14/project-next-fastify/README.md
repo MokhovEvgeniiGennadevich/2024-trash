@@ -3,6 +3,7 @@
 + 3. Делаем страницу "characters" Персонажи в next js 14
 + 3.1. Внутри страницы fetch запрос на fastify 4
 + 3.2. /character/[id] страница конкретного персонажа по ID
+3.3. Добавить SEO на главную, characters, character
 + 4. Fastify 4 возвращает ответ по URL 
   /characters/
 + 4.1. Установить TS Watcher

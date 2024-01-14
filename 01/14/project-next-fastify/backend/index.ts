@@ -6,6 +6,8 @@ server.get("/ping", async (request, reply) => {
   return "pong 25\n";
 });
 
+// Запросы в PostgreSQL с помощью Fastify
+
 server.get("/characters", async (request, reply) => {
   const characters = [
     {
@@ -27,6 +29,8 @@ server.get("/characters", async (request, reply) => {
       image: "ganon.PNG",
     },
   ];
+
+  // Рандомизируем возвращаемый результат ошибка или данные
 
   return characters;
 });

@@ -1,4 +1,25 @@
+import { Metadata } from "next";
 import Link from "next/link";
+
+type paramsType = {
+  params: {
+    slug: string;
+  };
+};
+
+export const generateMetadata = async (
+  params: paramsType
+): Promise<Metadata> => {
+  // Получить данные с бэкэнда ????????
+  const character = await getCharacterById(
+    params.params.slug
+  );
+
+  return {
+    title: character.name,
+    description: "Описание персонажа " + character.name,
+  };
+};
 
 type characterType = {
   id: string;
@@ -7,7 +28,9 @@ type characterType = {
   image: string;
 };
 
-export default async function CharacterPage(params: any) {
+export default async function CharacterPage(
+  params: paramsType
+) {
   const characterId = params.params.slug;
 
   const character = await getCharacterById(characterId);
