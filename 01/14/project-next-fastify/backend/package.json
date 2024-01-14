@@ -1,0 +1,14 @@
+{
+  "scripts": {
+    "build": "tsc --declaration",
+    "build-watch": "tsc -p tsconfig.json --watch",
+    "dev": "npm run build-watch && node index.js --watch"
+  },
+  "dependencies": {
+    "fastify": "^4.25.2"
+  },
+  "devDependencies": {
+    "@types/node": "^20.11.0",
+    "typescript": "^5.3.3"
+  }
+}
