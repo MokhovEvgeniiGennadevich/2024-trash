@@ -58,17 +58,38 @@ export default async function CharacterPage(
   );
 }
 
+// Singleton Pattern ?
+type pageDataType = {
+  character: characterType;
+};
+
+let pageData: pageDataType;
+
+// TODO: теперь он глобально кэширует результат этой функции и выдаёт одну страницу на любой URL
 async function getCharacterById(id: string) {
+  // Singleton Pattern
+  if (pageData?.character) {
+    console.log("Cached");
+    return pageData.character;
+  }
+
   const result = await fetch(
     "http://localhost:8080/characters",
     { cache: "no-store" }
   );
+
+  console.log("Fetch");
 
   const characters = await result.json();
 
   const character = characters.find(
     (character: any) => character.id === id
   );
+
+  // Singleton Page Params
+  pageData = {
+    character: character,
+  };
 
   return character;
 }

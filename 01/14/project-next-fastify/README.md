@@ -8,17 +8,8 @@
   /characters/
 + 4.1. Установить TS Watcher
 
-
+# Установка Next JS 14
 npx create-next-app@latest
 
-npm i fastify
-npm i -D typescript @types/node
-
-{
-  "scripts": {
-    "build": "tsc -p tsconfig.json",
-    "start": "node index.js"
-  }
-}
-
-npx tsc --init
+# Установка Fastify 4
+fastify generate test --lang=ts && cd test && npm i
