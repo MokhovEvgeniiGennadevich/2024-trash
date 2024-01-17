@@ -7,6 +7,10 @@
   <script src="https://cdn.jsdelivr.net/npm/@editorjs/editorjs@latest"></script>
   <script src="https://cdn.jsdelivr.net/npm/@editorjs/header@latest"></script>
   <script src="https://cdn.jsdelivr.net/npm/@editorjs/list@latest"></script>
+  <script src="https://cdn.jsdelivr.net/npm/@editorjs/code@latest"></script>
+  <script src="https://cdn.jsdelivr.net/npm/@editorjs/link@latest"></script>
+  <script src="https://cdn.jsdelivr.net/npm/@editorjs/image@latest"></script>
+  <script src="https://cdn.jsdelivr.net/npm/@editorjs/embed@latest"></script>
 </head>
 <body>
   <div name="editor" id="editor" style="border: 3px solid #ccc;"></div>
@@ -67,7 +71,24 @@ const editor = new EditorJS({
    */ 
   tools: { 
     header: Header, 
-    list: List 
+    list: List,
+    code: CodeTool,
+    linkTool: {
+      class: LinkTool,
+      config: {
+        endpoint: '/link.php', // Your backend endpoint for url data fetching,
+      }
+    },
+    image: {
+      class: ImageTool,
+      config: {
+        endpoints: {
+          byFile: 'http://localhost:3001/image.php', // Your backend file uploader endpoint
+        }
+      }
+    },
+    embed: Embed,
+
   }, 
 });
 
